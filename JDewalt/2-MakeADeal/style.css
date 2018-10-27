@@ -15,9 +15,35 @@ div {
 	width: 700px;
 	margin: 20px auto 50px;
 }
-.cookie_container {
+.cookie {
 	text-align: center;
+	transition: transform 2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+	padding: 0 0 0 0;
 }
+.cookie:hover{
+transform: scale(1.3);
+/*animation: rotation 4s linear infinite;*/
+}
+
+.cookie:active{
+	transform: scale(10);
+	transition: transform 1s;
+	animation: rotation 1s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+				-webkit-transform: scale(10);
+		}
+}
+
 #host{
 	line-height: 1.5;
 	font-size: 20px;
@@ -25,10 +51,11 @@ div {
 
 .cookie{
 	display: inline-block;
+	margin: 30px;
 }
 .link_container{
 	text-align: center;
-	margin: 40px;
+	margin: 20px;
 }
 
 a:link{
@@ -42,4 +69,8 @@ a:hover {
 }
 a:active {
 	color: #ff6500;
+}
+.iframe{
+	width: 500px;
+	height: 300px;
 }
