@@ -1,0 +1,30 @@
+html,
+body {
+  background-color: #5d0808;
+
+}
+
+.divtable{
+	display: table;
+	width:auto;
+
+
+}
+
+.divrow{
+	display: table-row;
+	width: auto;
+
+}
+
+.box {
+	  z-index: 1;
+	  height: 100px;
+	  width: 100px;
+	  background-color: #444;
+		display: table-cell;
+}
+
+.div{
+	align-items: center;
+}
