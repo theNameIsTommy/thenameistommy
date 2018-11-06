@@ -1,7 +1,7 @@
 html,
 body {
   background-color: #5d0808;
-
+ align-items: left;
 }
 
 .divtable{
@@ -25,6 +25,13 @@ body {
 		display: table-cell;
 }
 
-.div{
-	align-items: center;
+div{
+	text-align: left;
+}
+
+#btn{
+  width: 70;
+  height:30;
+  align-items: left;
+
 }
