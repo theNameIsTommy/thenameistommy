@@ -1,13 +1,16 @@
 html,
 body {
   background-color: #5d0808;
- align-items: left;
+ align-items: flex-start;
 }
 
 .divtable{
 	display: table;
 	width:auto;
+}
 
+.form1{
+  padding:3px;
 
 }
 
@@ -18,20 +21,21 @@ body {
 }
 
 .box {
-	  z-index: 1;
-	  height: 100px;
-	  width: 100px;
-	  background-color: #444;
-		display: table-cell;
+  background-color: #444;
+  border: 1px solid black;
+  display: table-cell;
+	height: 100px;
+  width: 100px;
+  z-index: 1;
 }
 
 div{
 	text-align: left;
 }
 
-#btn{
-  width: 70;
-  height:30;
+.btn{
   align-items: left;
+  height:30;
+  width: 70;
 
 }

@@ -1,23 +1,21 @@
-$(document).refady(function() {
-      function clearing() {
-        $("*.box").css('background-color', randomColor());
-         };
-        function randomColor() {
-          return '#' + Math.random().toString(16).slice(2, 8);
-        };
+/* global $ */
+$(document).ready(function () {
+  function randomColor () {
+    return '#' + Math.random().toString(16).slice(2, 8);
+  }
 
-        $(".box").on("mouseenter", function() {
-          $(this).css('background-color', randomColor());
-          $(this).css('box-shadow', "0 0 8px white");
-          $(this).css('z-index', "100000");
-        });
+  $('.box').on('mouseenter', function () {
+    $(this).css('background-color', randomColor());
+    $(this).css('box-shadow', '0 0 8px white');
+    $(this).css('z-index', '100000');
+  });
 
-        $(".box").on("mouseleave", function() {
-          $(this).css('box-shadow', "none");
-          $(this).css('z-index', "1");
-        });
+  $('.box').on('mouseleave', function () {
+    $(this).css('box-shadow', 'none');
+    $(this).css('z-index', '1');
+  });
 
-        $("#btn").on('click', function() {
-            $(".box").css('background-color', rgb(79, 72, 65);
-        });
-      });
+  $('#btn').on('click', function () {
+    $('.box').css('background-color', 'rgb(115, 108, 113)');
+  });
+});
