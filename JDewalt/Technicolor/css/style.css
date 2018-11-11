@@ -33,8 +33,8 @@ div{
 	text-align: left;
 }
 
-.btn{
-  align-items: left;
+.BTN{
+  align-items: flex-start;
   height:30;
   width: 70;
 
