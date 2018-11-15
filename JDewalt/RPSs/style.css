@@ -1,0 +1,110 @@
+body {
+  background-color: rgb(159, 198, 121);
+  color: rgb(82, 81, 75);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+header {
+  padding: 20px;
+  font-size: 32px;
+}
+
+#container {
+  width: 930px;
+  margin: 0 auto;
+  padding-bottom: 58px;
+}
+.player {
+	position: relative;
+	display: inline-block;
+	width: 350px;
+	height: 530px;
+	vertical-align: top;
+}
+#score_container {
+	display: inline-block;
+	width: 200px;
+	margin-top: 200px;
+	color: #008f68;
+	font-size: 32px;
+}
+.title {
+	padding: 10px 0;
+	margin: 12px 0;
+	border-bottom: 2px solid green;
+	color: #d11250;
+}
+
+#btn_container {
+	position: absolute;
+	bottom: 0;
+	left: 19px;
+}
+.button {
+	display: inline-block;
+	width: 100px;
+	padding: 10px 0;
+	font-size: 18px;
+  font-weight: bold;
+	background-color: yellow;
+	color: #1d113b;
+	cursor: pointer;
+}
+
+.button:active {
+	background-color: #54c2e9;
+}
+
+.button:hover {
+	background-color: rgb(222, 166, 81);
+}
+
+.hand_container {
+	margin-top: 100px;
+}
+
+.shake {
+	-webkit-animation: shake 1.5s;
+	-moz-animation: shake 1.5s;
+	-ms-animation: shake 1.5s;
+	animation: shake 1.5s;
+}
+
+@-webkit-keyframes shake {
+	0%, 100% {-webkit-transform: translateY(0);}
+	14%, 43%, 71%, 95%, 100% {-webkit-transform: translateY(30px);
+						 -webkit-animation-timing-function: ease-out; }
+	29%, 57%, 86% {-webkit-transform: translateY(-30px);
+				   -webkit-animation-timing-function: ease-out}
+}
+@-moz-keyframes shake {
+	0%, 100% {-moz-transform: translateY(0);}
+	14%, 43%, 71%, 95%, 100% {-moz-transform: translateY(30px);
+						 -moz-animation-timing-function: ease-out; }
+	29%, 57%, 86% {-moz-transform: translateY(-30px);
+				   -moz-animation-timing-function: ease-out}
+}
+@-o-keyframes shake {
+	0%, 100% {-o-transform: translateY(0);}
+	14%, 43%, 71%, 95%, 100% {-o-transform: translateY(30px);
+						 -o-animation-timing-function: ease-out; }
+	29%, 57%, 86% {-o-transform: translateY(-30px);
+				   -o-animation-timing-function: ease-out}
+}
+@-ms-keyframes shake {
+	0%, 100% {-ms-transform: translateY(0);}
+	14%, 43%, 71%, 95%, 100% {-ms-transform: translateY(30px);
+						 -ms-animation-timing-function: ease-out; }
+	29%, 57%, 86% {-ms-transform: translateY(-30px);
+				   -ms-animation-timing-function: ease-out}
+}
+@keyframes shake {
+	0%, 100% {transform: translateY(0);}
+	14%, 43%, 71%, 95%, 100% {transform: translateY(30px);
+						 animation-timing-function: ease-out; }
+	29%, 57%, 86% {transform: translateY(-30px);
+				   animation-timing-function: ease-out}
+}
