@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     setTimeout(function () {
       if (playerChoice === computerChoice) {
-        $('#score_container').text('Tie!');
+        $('#score_container').text('Tie!'+playerChoice + ' , ' + computerChoice);
       } else if ((playerChoice === 'rock' && computerChoice === 'scissors') || (playerChoice === 'paper' && computerChoice === 'rock') || (playerChoice === 'scissors' && computerChoice === 'paper')) {
         $('#score_container').text('You Win! cchoice:' + playerChoice + ' , ' + computerChoice);
       } else {
