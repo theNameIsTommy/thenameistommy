@@ -15,7 +15,6 @@ header {
 #container {
   width: 930px;
   margin: 0 auto;
-  padding-bottom: 58px;
 }
 .player {
 	position: relative;
@@ -27,7 +26,6 @@ header {
 #score_container {
 	display: inline-block;
 	width: 200px;
-	margin-top: 200px;
 	color: #008f68;
 	font-size: 32px;
 }
@@ -39,7 +37,7 @@ header {
 }
 
 #btn_container {
-	position: absolute;
+	position: inline-block;
 	bottom: 0;
 	left: 19px;
 }
