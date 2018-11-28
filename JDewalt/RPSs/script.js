@@ -1,21 +1,31 @@
-/* global $ */
-console.log('u reading?');
-$(document).ready(function () {
+/* global jQuery */
+
+jQuery(document).ready(function () {
   var rock = '../images/rock.png';
   var paper = '../images/paper.png';
   var scissors = '../images/scissors.png';
-  var hands = {rock: rock, paper: paper, scissors: scissors}
-  var choices = ['rock', 'paper', 'scissors'];
+  var lizard = '../images/lizard.png';
+  var spock = '../images/spock.png';
+  var hands = {rock: rock, paper: paper, scissors: scissors, lizard: lizard, spock: spock};
+  var choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
   var playerChoice, computerChoice;
+  var announcer = {
+    scissors:{
+      paper: 'Scissors cuts paper'},
+    paper:{
+      rock: 'Paper covers rock'}
+    };
 
-  $('.button').on('click', start);
+
+
+  jQuery('.button').on('click', start);
 
   function start () {
-    $('.button').off('click');
+    jQuery('.button').off('click');
     playerChoice = this.id;
-    computerChoice = choices[Math.floor(Math.random() * 3)];
-    $('.result').hide();
-    $('.fist').show();
+    computerChoice = choices[Math.floor(Math.random() * 5)];
+    jQuery('.result').hide();
+    jQuery('.fist').show();
     countDown();
   }
 
@@ -24,35 +34,37 @@ $(document).ready(function () {
     count();
 
     function count () {
-      $('.hand_container').addClass('shake');
-      $('#score_container').text('Counting: ' + i);
-
+      jQuery('.hand_container').addClass('shake');
+      jQuery('#score_container').text('Counting: ' + i);
+      jQuery('#score_container').text(announcer[scissors[paper]]);
+/*
       if (i === 0) {
         displayResults();
       } else {
         i -= 1;
         setTimeout(count, 500);
       }
+*/
     }
   }
 
   function displayResults () {
-    $('.hand_container').removeClass('shake');
-    $('#score_container').text('Shoot!');
-    $('.fist').hide();
-    $('.result.right.' + playerChoice).show();
-    $('.result.left.' + computerChoice).show();
+    jQuery('.hand_container').removeClass('shake');
+    jQuery('#score_container').text('Shoot!');
+    jQuery('.fist').hide();
+    jQuery('.result.right.' + playerChoice).show();
+    jQuery('.result.left.' + computerChoice).show();
 
     setTimeout(function () {
       if (playerChoice === computerChoice) {
-        $('#score_container').text('Tie!'+playerChoice + ' , ' + computerChoice);
-      } else if ((playerChoice === 'rock' && computerChoice === 'scissors') || (playerChoice === 'paper' && computerChoice === 'rock') || (playerChoice === 'scissors' && computerChoice === 'paper')) {
-        $('#score_container').text('You Win! cchoice:' + playerChoice + ' , ' + computerChoice);
+        jQuery('#score_container').text('Tie!'+ playerChoice + ' , ' + computerChoice);
+      } else if ((playerChoice === 'rock' && computerChoice === 'scissors') || (playerChoice === 'paper' && computerChoice === 'rock') || (playerChoice === 'scissors' && computerChoice === 'paper') || (playerChoice === 'lizard' && computerChoice ==='spock') || (playerChoice === 'lizard' && computerChoice ==='paper') || (playerChoice === 'spock' && computerChoice ==='scissors') || (playerChoice === 'spock' && computerChoice ==='rock')) {
+        jQuery('#score_container').text('You Win! cchoice:' + playerChoice + ' , ' + computerChoice);
       } else {
-        $('#score_container').text('You Lose comp:'+ playerChoice + ' , ' +computerChoice);
+        jQuery('#score_container').text('You Lose comp:'+ playerChoice + ' , ' +computerChoice);
       }
 
-      $('.button').on('click', start);
+      jQuery('.button').on('click', start);
     }, 400);
   }
 });
