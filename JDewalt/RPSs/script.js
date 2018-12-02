@@ -9,14 +9,12 @@ jQuery(document).ready(function () {
   var hands = {rock: rock, paper: paper, scissors: scissors, lizard: lizard, spock: spock};
   var choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
   var playerChoice, computerChoice;
-  var announcer = {
-    scissors:{
-      paper: 'Scissors cuts paper'},
-    paper:{
-      rock: 'Paper covers rock'}
-    };
-
-
+/*
+  var announcer = [
+    [scissors: [ paper: 'Scissors cuts paper' ]],
+    [paper: [ rock: 'Paper covers rock' ]]
+  ];
+*/
 
   jQuery('.button').on('click', start);
 
@@ -36,15 +34,15 @@ jQuery(document).ready(function () {
     function count () {
       jQuery('.hand_container').addClass('shake');
       jQuery('#score_container').text('Counting: ' + i);
-      jQuery('#score_container').text(announcer[scissors[paper]]);
-/*
+    //  jQuery('#score_container').text(str(scissors[0]));
+
       if (i === 0) {
         displayResults();
       } else {
         i -= 1;
         setTimeout(count, 500);
       }
-*/
+
     }
   }
 
@@ -57,11 +55,11 @@ jQuery(document).ready(function () {
 
     setTimeout(function () {
       if (playerChoice === computerChoice) {
-        jQuery('#score_container').text('Tie!'+ playerChoice + ' , ' + computerChoice);
+        jQuery('#score_container').text('Tie! Player\'s choice: '+ playerChoice + ', Computer\'s choice: ' + computerChoice);
       } else if ((playerChoice === 'rock' && computerChoice === 'scissors') || (playerChoice === 'paper' && computerChoice === 'rock') || (playerChoice === 'scissors' && computerChoice === 'paper') || (playerChoice === 'lizard' && computerChoice ==='spock') || (playerChoice === 'lizard' && computerChoice ==='paper') || (playerChoice === 'spock' && computerChoice ==='scissors') || (playerChoice === 'spock' && computerChoice ==='rock')) {
-        jQuery('#score_container').text('You Win! cchoice:' + playerChoice + ' , ' + computerChoice);
+        jQuery('#score_container').text('You Win! Computer\'s choice: ' + computerChoice + ', Player\'s choice: ' + playerChoice);
       } else {
-        jQuery('#score_container').text('You Lose comp:'+ playerChoice + ' , ' +computerChoice);
+        jQuery('#score_container').text('You Lose! Computer\'s choice: '+ computerChoice + ', Player\'s choice: ' +playerChoice);
       }
 
       jQuery('.button').on('click', start);
