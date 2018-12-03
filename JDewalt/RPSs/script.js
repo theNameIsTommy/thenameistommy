@@ -59,7 +59,7 @@ jQuery(document).ready(function () {
       } else if ((playerChoice === 'rock' && computerChoice === 'scissors') || (playerChoice === 'paper' && computerChoice === 'rock') || (playerChoice === 'scissors' && computerChoice === 'paper') || (playerChoice === 'lizard' && computerChoice ==='spock') || (playerChoice === 'lizard' && computerChoice ==='paper') || (playerChoice === 'spock' && computerChoice ==='scissors') || (playerChoice === 'spock' && computerChoice ==='rock')) {
         jQuery('#score_container').text('You Win! Computer\'s choice: ' + computerChoice + ', Player\'s choice: ' + playerChoice);
       } else {
-        jQuery('#score_container').text('You Lose! Computer\'s choice: '+ computerChoice + ', Player\'s choice: ' +playerChoice);
+        jQuery('#score_container').text('You\'ve Lost! Computer\'s choice: '+ computerChoice + ', Player\'s choice: ' +playerChoice);
       }
 
       jQuery('.button').on('click', start);
