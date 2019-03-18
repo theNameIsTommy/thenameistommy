@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     lineColor: '#1c6ced'
   });
   var intro = document.getElementById('intro');
-  intro.style.marginTop = - intro.offsetHeight / 40 + 'px';
+  intro.style.marginTop = - intro.offsetHeight / 10 + 'px';
 }, false);
 
 

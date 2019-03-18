@@ -20,7 +20,7 @@ time, mark, audio, video {
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
+
 }
 body {
   line-height: 1;
@@ -49,24 +49,27 @@ table {
           box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 body {
-  background: #000010;
+  background:rgba(0, 0, 0, 0.85);
   font-family: 'Montserrat', sans-serif;
   color: #fff;
-  line-height: 1.3;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 #particles {
+  position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  filter: blur(1.3px);
+}
+
+#upper{
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 50%;
 }
 
 #intro {
@@ -76,7 +79,12 @@ body {
   padding: 0 10px;
   width: 100%;
   text-align: center;
+  background: inherit;
+  overflow: hidden;
+  box-shadow: inset 0 0 2000px rgba(128, 128, 231, 0.5);
+  border-radius: 8em;
 }
+
 
 h2 {
   text-transform: uppercase;
@@ -91,7 +99,6 @@ hr{
   border-color: rgb(107, 28, 255);
   border-width: 0.4em;
   border-radius: 25px;
-
 }
 
 h1::after {
@@ -116,6 +123,8 @@ p {
   font-size: 24px;
   font-family: 'Roboto', sans-serif;
 }
+
+
 
 @media only screen and (max-width: 1000px) {
   h1 {
