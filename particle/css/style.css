@@ -87,7 +87,11 @@ h2 {
 }
 
 hr{
-  
+  width: 50%;
+  border-color: rgb(107, 28, 255);
+  border-width: 0.4em;
+  border-radius: 25px;
+
 }
 
 h1::after {
