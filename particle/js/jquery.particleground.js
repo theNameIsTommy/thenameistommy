@@ -93,6 +93,17 @@
 
       draw();
       hook('onInit');
+
+      document.addEventListener('click', function () {
+        if (options.curvedLines==true){
+          options.curvedLines=false;
+          //console.log('options.curvedLines=false', options.curvedLines);
+        }
+        else {
+          options.curvedLines=true;
+          //console.log('options.curvedLines=true', options.curvedLines);
+        }
+      }, false);
     }
 
     /**
@@ -380,14 +391,14 @@
     directionX: 'center', // 'center', 'left' or 'right'. 'center' = dots bounce off edges
     directionY: 'center', // 'center', 'up' or 'down'. 'center' = dots bounce off edges
     density: 25000, // How many particles will be generated: one particle every n pixels
-    dotColor: '#0e4fb7',
+    dotColor: '#00b2ff',
     lineColor: '#1c6ced',
     particleRadius: 10, // Dot size
     lineWidth: 3,
     curvedLines: true,
-    proximity: 300, // How close two dots need to be before they join
+    proximity: 200, // How close two dots need to be before they join
     parallax: true,
-    parallaxMultiplier: 8, // The lower the number, the more extreme the parallax effect
+    parallaxMultiplier: 7, // The lower the number, the more extreme the parallax effect
     onInit: function() {},
     onDestroy: function() {}
   };
