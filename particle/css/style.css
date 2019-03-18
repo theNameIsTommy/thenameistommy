@@ -77,12 +77,6 @@ body {
   width: 100%;
   text-align: center;
 }
-hr{
-  width: 50%;
-  border-color: rgb(107, 28, 255);
-  border-width: 0.4em;
-  border-radius: 25px;
-}
 
 h2 {
   text-transform: uppercase;
@@ -91,6 +85,11 @@ h2 {
   color: #ffffff;
   letter-spacing: 0.05em;
 }
+
+hr{
+  
+}
+
 h1::after {
   content: '';
   width: 80px;
@@ -98,7 +97,7 @@ h1::after {
   background: #fff;
   height: 10px;
   margin: 30px auto;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 #footer{
   position:absolute;
