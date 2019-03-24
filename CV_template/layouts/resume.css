@@ -241,6 +241,10 @@ ul {
 .talent h2 { margin-bottom: 6px }
 .grid { background-color: white }
 
+#hobbies{
+    margin-top:24px;
+}
+
 /* ================== responsive code ================= */
 
 /* tablet */
