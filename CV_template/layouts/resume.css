@@ -214,6 +214,11 @@ ul {
     -o-transition: 0.25s;
     transition: 0.25s;
 }
+
+.btn-back{
+    position: absolute;
+    margin: 5px;
+}
 .hr {
     border-bottom-color: #DDD;
     border-bottom-style: solid;
