@@ -1,0 +1,5 @@
+{
+	"python.pythonPath": "C:\\Users\\Tamas_Siklosi\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+	"python.linting.pylintEnabled": true,
+	"python.formatting.provider": "black"
+}
