@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <title>D3 tut</title>
+</head>
+<body>
+<script src="https://d3js.org/d3.v3.js"></script>
+<!-- <div id="rect"></div> -->
+<script>
+  /*
+  //var p = d3.select("body").append("p").text("first text using d3");
+
+  var p = d3.select("body").selectAll("p").data(data_values).enter().append("p").text(
+    function(v){return v;}
+    );
+    p.style({"font-size":"30px","font-family":"arial"});
+    */
+  var b = d3.select("body");
+  //b.style({"background-color":"grey"})
+  var data_values = [5,10,30,8,45,24,16,55,60,45,2,32,18,11,3];
+  var svg = d3.select("body").append("svg").attr({"width":450,"height":400});
+  var bars = svg.selectAll("rect").data(data_values).enter().append("rect").attr("width","25px").attr("height", function(d){ return d*5; });
+  bars.attr("x", function(d,i){return i*30;});
+  bars.attr("y", function(d){return 400-d*5;});
+  bars.attr("fill", "steelblue");
+  var max = d3.max(data_values);
+  var min = d3.min(data_values);
+  bars.filter(function(d){return d==max;}).attr("fill","green");
+  bars.filter(function(d){return d==min;}).attr("fill","red");
+
+  var svg2 = d3.select("body").append("svg");
+  svg2.attr({"width":500,"height":500, "margin-top":50});
+//data values
+var dval = [10,20,30,40,50,5,2,12,70,26];
+//create rectangles
+var bars2 = svg2.selectAll("rect")
+  .data(dval)
+  .enter()
+  .append("rect")
+  .attr("width","25px")
+  .attr("height", function(d){ return d; });
+
+var svgElement = d3.select("body")
+.append("svg")
+.attr({"width" : 500, "height" : 500});
+//create a linear scale to map data to pixels, domain is [0,50] and range is [10,400]
+var xScale = d3.scale.linear().domain([0,50]).range([10,400]);
+//create a axis based on the scale
+var xAxis = d3.svg.axis().scale(xScale)
+  .ticks(5) //limit number of ticks to 5
+  .orient("bottom"); //horizontal axis with labels to  the bottom
+//create a new group to hold the axis
+var x = svgElement.append("g")
+  .call(xAxis);
+
+</script>
+<style>
+  path{
+  stroke: steelblue;
+  fill: none;
+  stroke-width: 2;
+  }
+</style>
+</body>
+</html>

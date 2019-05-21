@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Charts</title>
+  <script src="https://d3js.org/d3.v3.js"></script>
+  <style type="text/css">
+    body{ font: Arial 30px; text-align: center; font-style:normal;  }
+
+    path{
+    stroke: steelblue;
+    fill: none;
+    stroke-width: 2;
+    }
+
+    .axis path, .axis line{
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+    }
+    </style>
+</head>
+<body>
+<h3>Basic Line Chart</h3>
+  <script>
+    var margin = {
+      top: 10,
+      bottom: 30,
+      right: 20,
+      left: 40
+    };
+    var width = 500 - margin.left - margin.right;
+    var height = 300 - margin.top - margin.bottom;
+
+    var dataRead = function() {
+      d3.tsv("/data.tsv", function(error, data){
+        if(error)
+        // If error, print the error message in the console
+        console.log(error);
+        else
+        // Print the data as a table in the console
+        console.table(data);
+      });
+    }
+    //dataRead();
+
+    var ParseDate = d3.time.format("%d-%b-%y").parse;
+    var formatData = function () {
+      d3.tsv("/data.tsv", function(data){
+      //Parse Data into useable format
+      data.forEach(function(d){
+      d.date = ParseDate(d.date);
+      d.close = +d.close;
+      //the + sign converts numeric string to number
+      return data;
+      });
+    })
+    }
+
+    var xScale = d3.time.scale().range([0, width]);
+    var yScale = d3.scale.linear().range([height, 0]);
+
+    var xAxis = d3.svg.axis().scale(xScale)
+      .orient("bottom")
+      .ticks(5);
+    var yAxis = d3.svg.axis().scale(yScale)
+      .orient("left")
+      //.ticks(5);
+
+    //Create a area generator
+    var area = d3.svg.area()
+    .x(function(d){
+      return xScale(d.date);
+    })
+    .y1(function(d){
+      return yScale(d.close);
+    });
+
+    //Create a line generator
+    /*
+    var valueline = d3.svg.line()
+      .x(function(d){
+        return xScale(d.date);
+      })
+      .y(function(d){
+        return yScale(d.close);
+      });
+    */
+
+    var svgElement = d3.select("body").append("svg")
+      .attr({"width": width+margin.left+margin.right, "height": height+margin.top+margin.bottom})
+      .append("g")
+      .attr("transform","translate("+margin.left+","+margin.top+")");
+
+    d3.tsv("/data.tsv", function(data){
+      data.forEach(function(d){
+      d.date = ParseDate(d.date);
+      d.close = +d.close;
+      //the + sign converts string automagically to number
+      });
+
+    //Set the domains of our scales
+    xScale.domain(d3.extent(data, function(d){ return d.date; }));
+    yScale.domain([0, d3.max(data, function(d){ return d.close; })]);
+
+    //AREA
+    area.y0(yScale(0));
+
+    var path = svgElement.append("path")
+      .attr("d", area(data))
+      .attr("fill","steelblue");
+
+    //Add X Axis
+    var x = svgElement.append("g")
+      .attr("transform", "translate(0,"+height+")")
+      .attr("class", "x axis")
+      .call(xAxis);
+      //Add Y Axis
+      var y = svgElement.append("g")
+      .call(yAxis)
+      .attr("class", "y axis");
+
+    //Add label to y axis
+    y.append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Price ($)");
+    });
+  </script>
+</body>
+</html>
