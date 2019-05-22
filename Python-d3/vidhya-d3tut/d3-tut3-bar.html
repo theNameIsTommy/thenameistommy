@@ -78,6 +78,7 @@
         return "<strong style='color:red'>Frequency:</strong> <span style='color:lightblue'>" + d.frequency + "</span>";
       });
 
+
     svg.call(tooltip);
 
     //Load data from external tsv file
@@ -108,8 +109,18 @@
         return height-yScale(d.frequency);
       })
       .on('mouseover', tooltip.show)
+      .on('mouseover', animation())
       .on('mouseout', tooltip.hide);
 
+
+      function animation (){
+      d3.select('rect')
+        .transition()
+        .duration(2000)
+        .attr("height", function(d){
+        return height-yScale(d.frequency);
+      })
+    }
     //Add X Axis
     svg.append("g")
       .attr("transform","translate(0,"+height+")")
@@ -122,12 +133,20 @@
     svg.append("bars")
       .attr("id", "circleBasicTooltip");
 
-    d3.select("#circleBasicTooltip")
-      .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-      .on("mousemove", function(){return tooltip.style("top", (event.pageY-800)+"px").style("left",(event.pageX-800)+"px");})
-      .on("mouseout", function(){return tooltip.style("visibility", "hidden");
-    });
+      d3.select("rect")
+    .on("mouseover",animation())
+
   });
+
+
+
+  d3.select("#circleBasicTooltip")
+      .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+      .on("mousemove", function(){return tooltip.style("top", (event.pageY-400)+"px").style("left",(event.pageX-400)+"px");})
+      .on("mouseout", function(){return tooltip.style("visibility", "hidden")
+    })
+
+
 
   function type(d) {
   d.frequency = +d.frequency;
