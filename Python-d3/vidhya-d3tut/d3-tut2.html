@@ -72,6 +72,9 @@
     .x(function(d){
       return xScale(d.date);
     })
+    .y0(function(d){
+      return yScale(0);
+    })
     .y1(function(d){
       return yScale(d.close);
     });
